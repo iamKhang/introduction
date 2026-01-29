@@ -1,5 +1,5 @@
-import { BrowserRouter, HashRouter, Routes, Route } from 'react-router-dom';
-import type { ReactNode } from 'react';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Revita from './pages/projects/Revita';
@@ -7,28 +7,33 @@ import Revita from './pages/projects/Revita';
 // Base path từ vite.config.ts
 const basePath = import.meta.env.BASE_URL;
 
-// Detect if we're on GitHub Pages (production) or local development
-const isGitHubPages = import.meta.env.PROD && window.location.hostname !== 'localhost';
+// Component to handle GitHub Pages 404.html redirect
+function RedirectHandler() {
+  const location = useLocation();
+  const navigate = useNavigate();
 
-// Router component with fallback
-function Router({ children }: { children: ReactNode }) {
-  if (isGitHubPages) {
-    // Use HashRouter for GitHub Pages
-    return <HashRouter basename={basePath}>{children}</HashRouter>;
-  }
-  // Use BrowserRouter for local development
-  return <BrowserRouter basename={basePath}>{children}</BrowserRouter>;
+  useEffect(() => {
+    // Handle GitHub Pages 404.html redirect
+    // URL format: /introduction/?/revita becomes /introduction/revita
+    if (location.search.startsWith('?/')) {
+      const path = location.search.slice(2).replace(/~and~/g, '&');
+      navigate(path + location.hash, { replace: true });
+    }
+  }, [location, navigate]);
+
+  return null;
 }
 
 export default function AppRouter() {
   return (
-    <Router>
+    <BrowserRouter basename={basePath}>
+      <RedirectHandler />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="revita" element={<Revita />} />
         </Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
