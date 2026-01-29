@@ -4,8 +4,8 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Revita from './pages/projects/Revita';
 
-// Base path từ vite.config.ts
-const basePath = import.meta.env.BASE_URL;
+// Base path từ vite.config.ts - normalize để loại bỏ trailing slash
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
 
 // Component to handle GitHub Pages 404.html redirect
 function RedirectHandler() {
@@ -25,8 +25,11 @@ function RedirectHandler() {
 }
 
 export default function AppRouter() {
+  // Chỉ dùng basename nếu không phải root
+  const basename = basePath === '/' ? undefined : basePath;
+  
   return (
-    <BrowserRouter basename={basePath}>
+    <BrowserRouter basename={basename}>
       <RedirectHandler />
       <Routes>
         <Route path="/" element={<Layout />}>
