@@ -1,54 +1,71 @@
-import { Link } from 'react-router-dom';
-
 export default function Revita() {
   const basePath = import.meta.env.BASE_URL;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 py-8 lg:py-12">
-        <Link
-          to={`${basePath}/`}
-          className="inline-flex items-center text-blue-800 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 mb-8 transition-all duration-200 hover:translate-x-[-4px] group"
-        >
-          <svg className="w-5 h-5 mr-2 transition-transform duration-200 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          <span className="font-medium">Quay lại danh sách dự án</span>
-        </Link>
-
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-6 sm:py-8 lg:py-12">
         {/* Header */}
-        <div className="mb-10 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
-            Revita: Hệ thống Quản lý Khám bệnh Thông minh
-          </h1>
-          <p className="text-xl text-blue-800 dark:text-blue-400 font-semibold mb-6">
-            01/2024 - 06/2024
+        <header className="mb-8 sm:mb-10 lg:mb-12">
+          <div className="mb-6 sm:mb-8">
+            <span className="inline-flex items-center px-3 py-1.5 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 text-xs font-semibold uppercase tracking-wider rounded-md border border-blue-200 dark:border-blue-800">
+              Đồ án tốt nghiệp
+            </span>
+          </div>
+          
+          <div className="mb-6 sm:mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-3 sm:mb-4 leading-none tracking-tighter">
+              REVITA
+            </h1>
+            <div className="w-16 sm:w-20 lg:w-24 h-1 sm:h-1.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"></div>
+          </div>
+          
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 font-normal mb-6 sm:mb-8 leading-relaxed uppercase tracking-wide">
+            Hệ thống Quản lý Khám bệnh Thông minh Tích hợp Gợi ý Chẩn đoán và Chatbot dành cho Phòng khám Đa khoa
           </p>
-          <div className="flex flex-wrap gap-3">
-            {['Next.js', 'NestJS', 'React Native', 'Electron', 'FastAPI', 'PostgreSQL', 'MongoDB', 'Redis', 'Docker'].map((tag) => (
+          
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 mb-8 sm:mb-10 text-xs sm:text-sm text-gray-500 dark:text-gray-500">
+            <div className="flex items-center gap-2">
+              <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span className="font-medium">01/2024 - 06/2024</span>
+            </div>
+            <span className="hidden sm:inline text-gray-300 dark:text-gray-700">•</span>
+            <span className="w-full sm:w-auto">6 tháng phát triển</span>
+          </div>
+          
+          <div className="flex flex-wrap gap-2 mb-8 sm:mb-10">
+            {[
+              { name: 'Next.js', bg: 'bg-black', text: 'text-white', border: 'border-black' },
+              { name: 'NestJS', bg: 'bg-[#E0234E]', text: 'text-white', border: 'border-[#E0234E]' },
+              { name: 'React Native', bg: 'bg-[#61DAFB]', text: 'text-black', border: 'border-[#61DAFB]' },
+              { name: 'Electron', bg: 'bg-[#47848F]', text: 'text-white', border: 'border-[#47848F]' },
+              { name: 'FastAPI', bg: 'bg-[#009688]', text: 'text-white', border: 'border-[#009688]' },
+              { name: 'PostgreSQL', bg: 'bg-[#336791]', text: 'text-white', border: 'border-[#336791]' },
+              { name: 'MongoDB', bg: 'bg-[#47A248]', text: 'text-white', border: 'border-[#47A248]' },
+              { name: 'Redis', bg: 'bg-[#DC382D]', text: 'text-white', border: 'border-[#DC382D]' },
+              { name: 'Docker', bg: 'bg-[#2496ED]', text: 'text-white', border: 'border-[#2496ED]' },
+            ].map((tag) => (
               <span
-                key={tag}
-                className="px-4 py-2 bg-gradient-to-r from-blue-700 to-blue-800 text-white text-sm rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
+                key={tag.name}
+                className={`px-3 py-1.5 ${tag.bg} ${tag.text} text-xs font-semibold rounded-md border ${tag.border} hover:opacity-90 transition-opacity duration-150`}
               >
-                {tag}
+                {tag.name}
               </span>
             ))}
           </div>
-        </div>
+          
+          <div className="h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent"></div>
+        </header>
 
         {/* Content */}
-        <div className="space-y-10">
+        <div className="space-y-8 sm:space-y-10 lg:space-y-12">
           {/* Thông tin chung */}
-          <section className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-blue-700 dark:border-blue-500">Thông tin chung</h2>
-            <div className="text-gray-700 dark:text-gray-300 space-y-6 leading-relaxed">
-              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 border-l-4 border-blue-700 dark:border-blue-500">
-                <p className="text-lg font-semibold text-gray-900 dark:text-white">
-                  Đây là đồ án tốt nghiệp
-                </p>
-              </div>
+          <section className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-blue-700 dark:border-blue-500">Thông tin chung</h2>
+            <div className="text-gray-700 dark:text-gray-300 space-y-4 sm:space-y-6 leading-relaxed text-sm sm:text-base">
               <div>
-                <p className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">Thành viên thực hiện:</p>
+                <p className="mb-2 sm:mb-3 text-base sm:text-lg font-semibold text-gray-900 dark:text-white">Thành viên thực hiện:</p>
                 <ul className="space-y-2 ml-4">
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-blue-700 rounded-full mr-3"></span>
@@ -64,75 +81,75 @@ export default function Revita() {
                 </ul>
               </div>
               <div>
-                <p className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Mã nguồn dự án:</p>
-                <div className="overflow-x-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                <p className="mb-3 sm:mb-4 text-base sm:text-lg font-semibold text-gray-900 dark:text-white">Mã nguồn dự án:</p>
+                <div className="overflow-x-auto -mx-4 sm:mx-0 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
                   <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                     <thead className="bg-gradient-to-r from-blue-700 to-blue-800">
                       <tr>
-                        <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">STT</th>
-                        <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Tên</th>
-                        <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Chức năng</th>
-                        <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Công nghệ</th>
-                        <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Người thực hiện chính</th>
-                        <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Link</th>
+                        <th className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">STT</th>
+                        <th className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Tên</th>
+                        <th className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Chức năng</th>
+                        <th className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Công nghệ</th>
+                        <th className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Người thực hiện</th>
+                        <th className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Link</th>
                       </tr>
                     </thead>
                     <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                       <tr className="hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors duration-150">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">1</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900 dark:text-white">Frontend</td>
-                        <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Giao diện web quản trị và đặt lịch khám</td>
-                        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 italic">NextJS</td>
-                        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 italic">Khang, Kiên</td>
-                        <td className="px-6 py-4 text-sm">
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-100">1</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-semibold text-gray-900 dark:text-white">Frontend</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-700 dark:text-gray-300">Giao diện web quản trị và đặt lịch khám</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 italic">NextJS</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 italic">Khang, Kiên</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm">
                           <a href="https://github.com/iamKhang/revita-fe" target="_blank" rel="noopener noreferrer" className="text-blue-800 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium hover:underline transition-all duration-150">
                             Xem trên GitHub
                           </a>
                         </td>
                       </tr>
                       <tr className="hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors duration-150 bg-gray-50 dark:bg-gray-900">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">2</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900 dark:text-white">Backend</td>
-                        <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">API server và logic nghiệp vụ</td>
-                        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 italic">NestJS</td>
-                        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 italic">Khang, Kiên</td>
-                        <td className="px-6 py-4 text-sm">
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-100">2</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-semibold text-gray-900 dark:text-white">Backend</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-700 dark:text-gray-300">API server và logic nghiệp vụ</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 italic">NestJS</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 italic">Khang, Kiên</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm">
                           <a href="https://github.com/iamKhang/revita-be" target="_blank" rel="noopener noreferrer" className="text-blue-800 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium hover:underline transition-all duration-150">
                             Xem trên GitHub
                           </a>
                         </td>
                       </tr>
                       <tr className="hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors duration-150">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">3</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900 dark:text-white">Desktop</td>
-                        <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Ứng dụng desktop cho màn hình chờ và kiosk</td>
-                        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 italic">Electron</td>
-                        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 italic">Khang</td>
-                        <td className="px-6 py-4 text-sm">
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-100">3</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-semibold text-gray-900 dark:text-white">Desktop</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-700 dark:text-gray-300">Ứng dụng desktop cho màn hình chờ và kiosk</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 italic">Electron</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 italic">Khang</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm">
                           <a href="https://github.com/iamKhang/revita-desktop" target="_blank" rel="noopener noreferrer" className="text-blue-800 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium hover:underline transition-all duration-150">
                             Xem trên GitHub
                           </a>
                         </td>
                       </tr>
                       <tr className="hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors duration-150 bg-gray-50 dark:bg-gray-900">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">4</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900 dark:text-white">Mobile</td>
-                        <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Ứng dụng di động cho bệnh nhân và bác sĩ</td>
-                        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 italic">React Native</td>
-                        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 italic">Kiên</td>
-                        <td className="px-6 py-4 text-sm">
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-100">4</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-semibold text-gray-900 dark:text-white">Mobile</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-700 dark:text-gray-300">Ứng dụng di động cho bệnh nhân và bác sĩ</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 italic">React Native</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 italic">Kiên</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm">
                           <a href="https://github.com/kientrank3/revita-mobile" target="_blank" rel="noopener noreferrer" className="text-blue-800 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium hover:underline transition-all duration-150">
                             Xem trên GitHub
                           </a>
                         </td>
                       </tr>
                       <tr className="hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors duration-150">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">5</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900 dark:text-white">Sympdiag</td>
-                        <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">Hệ thống gợi ý chẩn đoán dựa trên triệu chứng</td>
-                        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 italic">FastAPI, Skitlearn</td>
-                        <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 italic">Khang</td>
-                        <td className="px-6 py-4 text-sm">
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-100">5</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm font-semibold text-gray-900 dark:text-white">Sympdiag</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-700 dark:text-gray-300">Hệ thống gợi ý chẩn đoán dựa trên triệu chứng</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 italic">FastAPI, Skitlearn</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 italic">Khang</td>
+                        <td className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 text-xs sm:text-sm">
                           <a href="https://github.com/iamKhang/revita-sympdiag" target="_blank" rel="noopener noreferrer" className="text-blue-800 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium hover:underline transition-all duration-150">
                             Xem trên GitHub
                           </a>
@@ -142,13 +159,30 @@ export default function Revita() {
                   </table>
                 </div>
               </div>
+              
+              <div className="mt-4 sm:mt-6">
+                <a
+                  href="https://www.youtube.com/watch?v=QWjbZYMV6Os"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white text-xs sm:text-sm font-medium rounded-md shadow-md hover:shadow-lg transition-all duration-200 group"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                  <span>Xem Demo</span>
+                  <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </section>
 
           {/* I. Giới thiệu */}
-          <section className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-blue-700 dark:border-blue-500">I. Giới thiệu</h2>
-            <div className="text-gray-700 dark:text-gray-300 space-y-4 leading-relaxed">
+          <section className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-blue-700 dark:border-blue-500">I. Giới thiệu</h2>
+            <div className="text-gray-700 dark:text-gray-300 space-y-4 leading-relaxed text-sm sm:text-base">
               <p>
                 Quy trình quản lý khám bệnh tại các phòng khám đa khoa ở Việt Nam bao gồm nhiều giai đoạn tuần tự: lấy số thứ tự, hoàn tất thủ tục hành chính để đăng ký và khám bệnh, chỉ định các dịch vụ chẩn đoán và thủ thuật cần thiết, thanh toán chi phí, và cuối cùng là bác sĩ chẩn đoán tình trạng bệnh, kê đơn thuốc cho bệnh nhân. Quy trình này đòi hỏi sự phối hợp chặt chẽ giữa nhiều bên liên quan, bao gồm nhân viên hành chính, bác sĩ, bệnh nhân và thu ngân. Với dân số già hóa nhanh chóng và nhu cầu y tế ngày càng gia tăng, việc duy trì hiệu quả và công bằng trong quản lý trở nên cực kỳ thách thức, đặc biệt khi các bước thủ công dẫn đến ùn tắc và sai sót.
               </p>
@@ -165,21 +199,21 @@ export default function Revita() {
           </section>
 
           {/* II. Kiến trúc phần mềm */}
-          <section className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-blue-700 dark:border-blue-500">II. Kiến trúc phần mềm</h2>
-            <div className="mb-6 rounded-xl overflow-hidden  flex justify-center">
+          <section className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-blue-700 dark:border-blue-500">II. Kiến trúc phần mềm</h2>
+            <div className="mb-4 sm:mb-6 rounded-xl overflow-hidden flex justify-center">
               <img
                 src={`${basePath}projects/revita/Layer.png`}
                 alt="Sơ đồ kiến trúc của phần mềm"
-                className="w-1/2"
+                className="w-full sm:w-3/4 lg:w-1/2"
               />
             </div>
-            <div className="text-gray-700 dark:text-gray-300 space-y-4 leading-relaxed">
+            <div className="text-gray-700 dark:text-gray-300 space-y-4 leading-relaxed text-sm sm:text-base">
               <p>
                 Hệ thống Revita được thiết kế dựa trên kiến trúc phân tầng (layered architecture), một mô hình kiến trúc phần mềm phổ biến giúp tổ chức hệ thống thành các tầng độc lập với trách nhiệm rõ ràng. Kiến trúc này đảm bảo tính mô đun hóa, khả năng bảo trì và mở rộng, đồng thời tách biệt các mối quan tâm giữa giao diện người dùng, logic nghiệp vụ và dữ liệu.
               </p>
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Tầng giao diện người dùng (Client Layer)</h3>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2">Tầng giao diện người dùng (Client Layer)</h3>
                 <p className="mb-2">Bao gồm ba ứng dụng độc lập về nền tảng nhưng thống nhất về trải nghiệm người dùng:</p>
                 <ul className="list-disc list-inside space-y-1 ml-4">
                   <li>Ứng dụng web được xây dựng trên Next.js với kiến trúc App Router hiện đại</li>
@@ -238,16 +272,16 @@ export default function Revita() {
           </section>
 
           {/* III. Sơ đồ triển khai hệ thống */}
-          <section className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-blue-700 dark:border-blue-500">III. Sơ đồ triển khai hệ thống</h2>
-            <div className="mb-6 rounded-xl overflow-hidden flex justify-center">
+          <section className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-blue-700 dark:border-blue-500">III. Sơ đồ triển khai hệ thống</h2>
+            <div className="mb-4 sm:mb-6 rounded-xl overflow-hidden flex justify-center">
               <img
                 src={`${basePath}projects/revita/Architecture.png`}
                 alt="Sơ đồ triển khai hệ thống"
-                className="w-1/2"
+                className="w-full sm:w-3/4 lg:w-1/2"
               />
             </div>
-            <div className="text-gray-700 dark:text-gray-300 space-y-4 leading-relaxed">
+            <div className="text-gray-700 dark:text-gray-300 space-y-4 leading-relaxed text-sm sm:text-base">
               <p>
                 Hệ thống được triển khai theo mô hình CI/CD tự động với sự hỗ trợ của Coolify và Docker trên nền tảng DigitalOcean, bám sát các thực hành DevOps hiện đại. Khi lập trình viên đẩy (push) mã nguồn lên GitHub, Coolify nhận webhook và tự động pull phiên bản mới nhất, build Docker image, sau đó triển khai lên các application server. Nginx được tích hợp trực tiếp trong Coolify để quản lý định tuyến HTTPS và WebSocket, đảm bảo kết nối an toàn và real-time giữa client (Web, Mobile, Desktop) và server.
               </p>
@@ -272,9 +306,9 @@ export default function Revita() {
           </section>
 
           {/* IV. Công nghệ sử dụng trong hệ thống */}
-          <section className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-blue-700 dark:border-blue-500">IV. Công nghệ sử dụng trong hệ thống</h2>
-            <div className="text-gray-700 dark:text-gray-300 space-y-3 leading-relaxed">
+          <section className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-blue-700 dark:border-blue-500">IV. Công nghệ sử dụng trong hệ thống</h2>
+            <div className="text-gray-700 dark:text-gray-300 space-y-3 leading-relaxed text-sm sm:text-base">
               <p><strong>NextJS</strong> được sử dụng để xây dựng giao diện web quản trị và đặt lịch khám trực tuyến 24/7, tận dụng Server-Side Rendering (SSR) và Static Site Generation (SSG) nhằm tối ưu tốc độ tải trang, cải thiện SEO và đảm bảo trải nghiệm người dùng mượt mà trên mọi thiết bị.</p>
               <p><strong>NestJS</strong> xây dựng hệ thống backend trung tâm của Revita, quản lý toàn bộ logic nghiệp vụ như lịch khám, hồ sơ bệnh nhân, ưu tiên theo quy định pháp luật và thanh toán chuyển khoản.</p>
               <p><strong>React Native</strong> phát triển ứng dụng di động cho bệnh nhân và bác sĩ, cho phép đặt lịch, nhận thông báo, tra cứu hồ sơ trên cả iOS và Android từ một mã nguồn duy nhất.</p>
@@ -292,9 +326,9 @@ export default function Revita() {
           </section>
 
           {/* V. Quy trình khám chữa bệnh tại phòng khám */}
-          <section className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-blue-700 dark:border-blue-500">V. Quy trình khám chữa bệnh tại phòng khám</h2>
-            <div className="text-gray-700 dark:text-gray-300 space-y-4 leading-relaxed">
+          <section className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-blue-700 dark:border-blue-500">V. Quy trình khám chữa bệnh tại phòng khám</h2>
+            <div className="text-gray-700 dark:text-gray-300 space-y-4 leading-relaxed text-sm sm:text-base">
               <p><strong>Bước 1</strong>: Bệnh nhân có thể đặt lịch khám trước sau đó đến phòng khám, nhập thông tin khám bệnh nếu đăng ký khám lần đầu, nếu đã từng đến khám tại bệnh viện thì bệnh nhân nhập mã hồ sơ khám/ số điện thoại hồ sơ/mã đặt lịch (nếu có) sau đó hệ thống sẽ phân phối bệnh nhân vào các quầy làm thủ tục khám với cơ chế xoay vòng có ưu tiên.</p>
               <p><strong>Bước 2</strong>: Nhân viên quầy thủ tục nhấn gọi bệnh nhân đến quầy làm thủ tục, bệnh nhân quan sát thông tin của mình trên màn hình chờ để biết khi nào chuẩn bị đến làm thủ tục.</p>
               <p><strong>Bước 3</strong>: Bệnh nhân sau khi làm thủ tục khám thì cầm theo phiếu chỉ định các dịch vụ đến quầy thu ngân nộp để thanh toán các phí dịch vụ theo yêu cầu. Nhân viên thu nhân nhận phiếu chỉ định và bắt đầu tạo hóa đơn thanh toán với các dịch vụ bệnh nhân muốn thực hiện. Có hai phương thức thanh toán là bằng tiền mặt (nhân viên thu ngân xác nhận thanh toán thành công khi nhận tiền) và thanh toán qua hình thức chuyển khoản nhân viên tạo mã chuyển khoản tương ứng với hóa đơn và đưa mã chuyển khoản cho bệnh nhân, bệnh nhân thực hiện chuyển khoản (thông qua tài khoản ngân hàng hoặc tài khoản ví điện tử) khi chuyển khoản thành công thì hệ thống tự động cập nhật thông tin và xuất hóa đơn tự động.</p>
@@ -305,9 +339,9 @@ export default function Revita() {
           </section>
 
           {/* VI. Một số chức năng chính */}
-          <section className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-blue-700 dark:border-blue-500">VI. Một số chức năng chính</h2>
-            <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
+          <section className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-blue-700 dark:border-blue-500">VI. Một số chức năng chính</h2>
+            <ul className="list-disc list-inside space-y-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 ml-4">
               <li>Đề xuất/Xác nhận lịch làm việc.</li>
               <li>Đặt lịch hẹn khám bệnh</li>
               <li>Lấy số thứ tự để đến quầy thủ tục</li>
@@ -319,9 +353,9 @@ export default function Revita() {
           </section>
 
           {/* VII. Sơ đồ lớp */}
-          <section className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-blue-700 dark:border-blue-500">VII. Sơ đồ lớp</h2>
-            <div className="mb-6 rounded-xl overflow-hidden shadow-xl">
+          <section className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-blue-700 dark:border-blue-500">VII. Sơ đồ lớp</h2>
+            <div className="mb-4 sm:mb-6 rounded-xl overflow-hidden shadow-xl">
               <img
                 src={`${basePath}projects/revita/Class.png`}
                 alt="Sơ đồ lớp"
@@ -331,8 +365,8 @@ export default function Revita() {
           </section>
 
           {/* VIII. Hiện thực */}
-          <section className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 pb-3 border-b-2 border-blue-700 dark:border-blue-500">VIII. Hiện thực</h2>
+          <section className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-blue-700 dark:border-blue-500">VIII. Hiện thực</h2>
             
             <div className="space-y-8">
               <div>
@@ -394,7 +428,7 @@ export default function Revita() {
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2 sm:mb-3">
                   Tạo phiếu chỉ định cho bệnh nhân
                 </h3>
                 <img
@@ -419,7 +453,7 @@ export default function Revita() {
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   Xem thông tin bệnh nhân
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3 sm:mb-4">
                   Thông tin hành chính, các bệnh án, lịch sử thực hiện khám/chữa bệnh tại phòng khám.
                 </p>
                 <img
