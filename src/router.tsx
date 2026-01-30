@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Revita from './pages/projects/Revita';
+import Vodka from './pages/projects/Vodka';
 
 // Base path từ vite.config.ts - normalize để loại bỏ trailing slash
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
@@ -35,6 +36,7 @@ export default function AppRouter() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="revita" element={<Revita />} />
+          <Route path="vodka" element={<Vodka />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -18,4 +18,13 @@ export const projects: Project[] = [
     tags: ['Next.js', 'NestJS', 'React Native', 'Electron', 'FastAPI', 'PostgreSQL', 'MongoDB', 'Redis', 'Docker'],
     avatar: '/projects/revita/Layer.png',
   },
+  {
+    id: 'vodka',
+    title: 'Vodka',
+    description: 'Ứng dụng nhắn tin thời gian thực hiện đại được xây dựng với Next.js, tương tự như Zalo, cho phép người dùng kết nối, trò chuyện và chia sẻ khoảnh khắc với bạn bè và gia đình.',
+    startDate: '02/2025',
+    endDate: '05/2025',
+    tags: ['Next.js', 'NestJS', 'React Native', 'PostgreSQL', 'WebSocket'],
+    avatar: '/projects/vodka/landing.jpg',
+  },
 ];
