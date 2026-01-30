@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
 
 export default function Home() {
+  const basePath = import.meta.env.BASE_URL;
+
   return (
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -19,7 +21,7 @@ export default function Home() {
               {project.avatar && (
                 <div className="w-full h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
                   <img
-                    src={project.avatar}
+                    src={`${basePath}${project.avatar.replace(/^\//, '')}`}
                     alt={project.title}
                     className="w-full h-full object-cover"
                     onError={(e) => {
