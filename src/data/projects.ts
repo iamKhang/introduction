@@ -27,4 +27,13 @@ export const projects: Project[] = [
     tags: ['Next.js', 'NestJS', 'React Native', 'PostgreSQL', 'WebSocket'],
     avatar: '/projects/vodka/landing.jpg',
   },
+  {
+    id: 'eduforge',
+    title: 'EduForge',
+    description: 'Nền tảng học tập trực tuyến tiên tiến, được thiết kế và phát triển như một dự án môn học Kiến trúc và Thiết kế Phần mềm năm 2025. Với mục tiêu mang lại trải nghiệm học tập hiện đại, cá nhân hóa và hiệu quả.',
+    startDate: '2025',
+    endDate: '2025',
+    tags: ['Next.js 14', 'NestJS', 'PostgreSQL', 'Redis', 'Kong Gateway'],
+    avatar: '/projects/eduforge/home.jpg',
+  },
 ];

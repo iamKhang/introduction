@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Revita from './pages/projects/Revita';
 import Vodka from './pages/projects/Vodka';
+import EduForge from './pages/projects/EduForge';
 
 // Base path từ vite.config.ts - normalize để loại bỏ trailing slash
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
@@ -37,6 +38,7 @@ export default function AppRouter() {
           <Route index element={<Home />} />
           <Route path="revita" element={<Revita />} />
           <Route path="vodka" element={<Vodka />} />
+          <Route path="eduforge" element={<EduForge />} />
         </Route>
       </Routes>
     </BrowserRouter>
